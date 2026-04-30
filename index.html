@@ -1,0 +1,1788 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GV Tech Soluções - Especialista em Suporte de TI</title>
+<style>
+
+/* ======================================
+   RESET E BASE
+====================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #0a0a1a;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* ======================================
+   MENU TOPO
+====================================== */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(10, 10, 26, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid #00d4ff;
+    z-index: 9999;
+    padding: 15px 0;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #00d4ff;
+    text-decoration: none;
+}
+
+.nav-logo span {
+    color: #fff;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.95em;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+    color: #00d4ff;
+}
+
+.nav-btn {
+    background: #00d4ff;
+    color: #000 !important;
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-weight: bold !important;
+    transition: all 0.3s !important;
+}
+
+.nav-btn:hover {
+    background: #00ff88 !important;
+    transform: scale(1.05);
+}
+
+/* Menu Mobile */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background: #00d4ff;
+    border-radius: 3px;
+    transition: 0.3s;
+}
+
+/* ======================================
+   HERO / BANNER PRINCIPAL
+====================================== */
+#inicio {
+    min-height: 100vh;
+    background: linear-gradient(
+        135deg,
+        #0a0a1a 0%,
+        #0f3460 50%,
+        #0a0a1a 100%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 100px 20px 60px;
+    position: relative;
+    overflow: hidden;
+}
+
+#inicio::before {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(
+        circle,
+        rgba(0, 212, 255, 0.1) 0%,
+        transparent 70%
+    );
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: pulse 3s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: translate(-50%,-50%) scale(1); opacity: 0.5; }
+    50% { transform: translate(-50%,-50%) scale(1.2); opacity: 1; }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+}
+
+.hero-badge {
+    display: inline-block;
+    background: rgba(0, 212, 255, 0.15);
+    border: 1px solid #00d4ff;
+    color: #00d4ff;
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-size: 0.9em;
+    margin-bottom: 25px;
+    animation: fadeInDown 1s ease;
+}
+
+.hero-title {
+    font-size: 3.5em;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    animation: fadeInUp 1s ease;
+}
+
+.hero-title span {
+    color: #00d4ff;
+    display: block;
+}
+
+.hero-sub {
+    font-size: 1.2em;
+    color: #aaa;
+    margin-bottom: 40px;
+    line-height: 1.6;
+    animation: fadeInUp 1.2s ease;
+}
+
+.hero-btns {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeInUp 1.4s ease;
+}
+
+.btn-primary {
+    background: linear-gradient(
+        135deg, #00d4ff, #0069d9
+    );
+    color: #fff;
+    padding: 15px 35px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: all 0.3s;
+    box-shadow: 0 5px 20px rgba(0,212,255,0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0,212,255,0.5);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: #fff;
+    padding: 15px 35px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    border: 2px solid #00d4ff;
+    transition: all 0.3s;
+}
+
+.btn-secondary:hover {
+    background: #00d4ff;
+    color: #000;
+    transform: translateY(-3px);
+}
+
+/* Stats */
+.hero-stats {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    margin-top: 60px;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-num {
+    font-size: 2.5em;
+    font-weight: 900;
+    color: #00d4ff;
+    display: block;
+}
+
+.stat-label {
+    font-size: 0.85em;
+    color: #aaa;
+}
+
+/* ======================================
+   SECOES GERAIS
+====================================== */
+section {
+    padding: 80px 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-title h2 {
+    font-size: 2.5em;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.section-title h2 span {
+    color: #00d4ff;
+}
+
+.section-title p {
+    color: #aaa;
+    font-size: 1.1em;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.linha {
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(
+        90deg, #00d4ff, #0069d9
+    );
+    margin: 15px auto;
+    border-radius: 2px;
+}
+
+/* ======================================
+   SOBRE
+====================================== */
+#sobre {
+    background: #0d0d1f;
+}
+
+.sobre-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.sobre-img {
+    position: relative;
+}
+
+.sobre-img-box {
+    width: 100%;
+    height: 400px;
+    background: linear-gradient(
+        135deg, #0f3460, #16213e
+    );
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8em;
+    border: 2px solid rgba(0,212,255,0.3);
+    box-shadow: 0 20px 60px rgba(0,212,255,0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.sobre-img-box::before {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(
+        circle,
+        rgba(0,212,255,0.2),
+        transparent
+    );
+    top: -50px;
+    right: -50px;
+}
+
+.badge-exp {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    background: linear-gradient(
+        135deg, #00d4ff, #0069d9
+    );
+    color: #000;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    font-weight: 900;
+    box-shadow: 0 10px 30px rgba(0,212,255,0.4);
+}
+
+.badge-exp span {
+    font-size: 2em;
+    display: block;
+}
+
+.sobre-text h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    line-height: 1.3;
+}
+
+.sobre-text h2 span {
+    color: #00d4ff;
+}
+
+.sobre-text p {
+    color: #aaa;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.sobre-lista {
+    list-style: none;
+    margin: 20px 0;
+}
+
+.sobre-lista li {
+    padding: 8px 0;
+    color: #ddd;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sobre-lista li::before {
+    content: '✅';
+    font-size: 0.9em;
+}
+
+/* ======================================
+   SERVICOS
+====================================== */
+#servicos {
+    background: #0a0a1a;
+}
+
+.servicos-grid {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit, minmax(300px, 1fr)
+    );
+    gap: 25px;
+}
+
+.servico-card {
+    background: linear-gradient(
+        135deg, #16213e, #0f3460
+    );
+    border-radius: 15px;
+    padding: 35px 25px;
+    border: 1px solid rgba(0,212,255,0.1);
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.servico-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(
+        90deg, #00d4ff, #0069d9
+    );
+    transform: scaleX(0);
+    transition: transform 0.3s;
+}
+
+.servico-card:hover::before {
+    transform: scaleX(1);
+}
+
+.servico-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0,212,255,0.15);
+    border-color: rgba(0,212,255,0.3);
+}
+
+.servico-icon {
+    font-size: 3em;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.servico-card h3 {
+    font-size: 1.3em;
+    margin-bottom: 12px;
+    color: #fff;
+}
+
+.servico-card p {
+    color: #aaa;
+    line-height: 1.7;
+    font-size: 0.95em;
+}
+
+.servico-preco {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(0,212,255,0.2);
+    color: #00d4ff;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+/* ======================================
+   GALERIA
+====================================== */
+#galeria {
+    background: #0d0d1f;
+}
+
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit, minmax(280px, 1fr)
+    );
+    gap: 20px;
+}
+
+.galeria-item {
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    aspect-ratio: 4/3;
+    background: linear-gradient(
+        135deg, #16213e, #0f3460
+    );
+    border: 1px solid rgba(0,212,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4em;
+    transition: all 0.3s;
+}
+
+.galeria-item:hover {
+    transform: scale(1.03);
+    box-shadow: 0 15px 40px rgba(0,212,255,0.2);
+    border-color: #00d4ff;
+}
+
+.galeria-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(
+        transparent,
+        rgba(0,0,0,0.8)
+    );
+    padding: 20px;
+    transform: translateY(100%);
+    transition: 0.3s;
+}
+
+.galeria-item:hover .galeria-overlay {
+    transform: translateY(0);
+}
+
+.galeria-overlay p {
+    color: #fff;
+    font-weight: bold;
+}
+
+/* ======================================
+   ORCAMENTO
+====================================== */
+#orcamento {
+    background: linear-gradient(
+        135deg, #0a0a1a, #0f3460, #0a0a1a
+    );
+}
+
+.orcamento-container {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 50px;
+    align-items: start;
+}
+
+.orcamento-info h3 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    color: #00d4ff;
+}
+
+.orcamento-info p {
+    color: #aaa;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.contato-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: rgba(0,212,255,0.05);
+    border-radius: 10px;
+    border: 1px solid rgba(0,212,255,0.1);
+    transition: 0.3s;
+}
+
+.contato-item:hover {
+    border-color: #00d4ff;
+    background: rgba(0,212,255,0.1);
+}
+
+.contato-icon {
+    font-size: 1.8em;
+    width: 50px;
+    text-align: center;
+}
+
+.contato-text strong {
+    display: block;
+    color: #00d4ff;
+    font-size: 0.85em;
+    margin-bottom: 3px;
+}
+
+.contato-text span {
+    color: #ddd;
+}
+
+/* Formulario */
+.form-orcamento {
+    background: #16213e;
+    border-radius: 20px;
+    padding: 40px;
+    border: 1px solid rgba(0,212,255,0.2);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+.form-orcamento h3 {
+    font-size: 1.5em;
+    margin-bottom: 25px;
+    color: #00d4ff;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    color: #aaa;
+    font-size: 0.9em;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    background: #0a0a1a;
+    border: 1px solid rgba(0,212,255,0.2);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1em;
+    transition: 0.3s;
+    font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #00d4ff;
+    box-shadow: 0 0 0 3px rgba(0,212,255,0.1);
+}
+
+.form-group select option {
+    background: #16213e;
+}
+
+.form-group textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.btn-enviar {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(
+        135deg, #00d4ff, #0069d9
+    );
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 10px;
+}
+
+.btn-enviar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0,212,255,0.4);
+}
+
+/* ======================================
+   CONTATO
+====================================== */
+#contato {
+    background: #0a0a1a;
+    padding: 60px 20px;
+}
+
+.contato-grid {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit, minmax(200px, 1fr)
+    );
+    gap: 25px;
+    text-align: center;
+}
+
+.contato-card {
+    background: #16213e;
+    border-radius: 15px;
+    padding: 30px 20px;
+    border: 1px solid rgba(0,212,255,0.1);
+    transition: 0.3s;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.contato-card:hover {
+    border-color: #00d4ff;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,212,255,0.15);
+}
+
+.contato-card-icon {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.contato-card h3 {
+    color: #00d4ff;
+    margin-bottom: 8px;
+    font-size: 1em;
+}
+
+.contato-card p {
+    color: #aaa;
+    font-size: 0.95em;
+}
+
+/* ======================================
+   WHATSAPP FLUTUANTE
+====================================== */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: #25d366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8em;
+    text-decoration: none;
+    box-shadow: 0 5px 20px rgba(37,211,102,0.4);
+    z-index: 9998;
+    animation: bounce 2s infinite;
+    transition: 0.3s;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 30px rgba(37,211,102,0.6);
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+/* ======================================
+   FOOTER
+====================================== */
+footer {
+    background: #060614;
+    padding: 40px 20px 20px;
+    border-top: 2px solid rgba(0,212,255,0.2);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-brand h3 {
+    color: #00d4ff;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.footer-brand p {
+    color: #aaa;
+    line-height: 1.7;
+    font-size: 0.95em;
+}
+
+.footer-links h4 {
+    color: #fff;
+    margin-bottom: 15px;
+    font-size: 1em;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links ul li {
+    margin-bottom: 8px;
+}
+
+.footer-links ul li a {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 0.9em;
+    transition: color 0.3s;
+}
+
+.footer-links ul li a:hover {
+    color: #00d4ff;
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    color: #555;
+    font-size: 0.9em;
+}
+
+/* ======================================
+   ANIMACOES
+====================================== */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ======================================
+   RESPONSIVO MOBILE
+====================================== */
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #0a0a1a;
+        flex-direction: column;
+        padding: 20px;
+        gap: 15px;
+        border-bottom: 2px solid #00d4ff;
+    }
+
+    .nav-menu.ativo {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .hero-title {
+        font-size: 2.2em;
+    }
+
+    .sobre-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .orcamento-container {
+        grid-template-columns: 1fr;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-stats {
+        gap: 20px;
+    }
+}
+
+/* ======================================
+   MODAL DE SUCESSO
+====================================== */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    z-index: 99999;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.ativo {
+    display: flex;
+}
+
+.modal-box {
+    background: #16213e;
+    border-radius: 20px;
+    padding: 50px;
+    text-align: center;
+    border: 2px solid #00d4ff;
+    max-width: 400px;
+    animation: fadeInUp 0.4s ease;
+}
+
+.modal-box h3 {
+    font-size: 1.8em;
+    color: #00ff88;
+    margin-bottom: 15px;
+}
+
+.modal-box p {
+    color: #aaa;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.modal-close {
+    background: #00d4ff;
+    color: #000;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1em;
+    transition: 0.3s;
+}
+
+.modal-close:hover {
+    background: #00ff88;
+}
+
+</style>
+</head>
+<body>
+
+<!-- ======================================
+     MENU DE NAVEGACAO
+====================================== -->
+<nav>
+    <div class="nav-container">
+        <a href="#inicio" class="nav-logo">
+            GV<span>Tech</span>
+        </a>
+
+        <div class="menu-toggle"
+             onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li>
+                <a href="#servicos">Serviços</a>
+            </li>
+            <li><a href="#galeria">Galeria</a></li>
+            <li><a href="#contato">Contato</a></li>
+            <li>
+                <a href="#orcamento"
+                   class="nav-btn">
+                    Orçamento
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- ======================================
+     HERO / BANNER PRINCIPAL
+====================================== -->
+<section id="inicio">
+    <div class="hero-content">
+        <div class="hero-badge">
+            ⚡ Suporte Técnico Profissional
+        </div>
+
+        <h1 class="hero-title">
+            GV Tech Soluções
+            <span>Sua TI funcionando,</span>
+            <span style="color:#00ff88">
+                sem complicações.
+            </span>
+        </h1>
+
+        <p class="hero-sub">
+            Especialista em Suporte de Tecnologia
+            para empresas e pessoas físicas.
+            Resolvo seus problemas de TI com
+            rapidez e eficiência.
+        </p>
+
+        <div class="hero-btns">
+            <a href="#orcamento"
+               class="btn-primary">
+                📋 Solicitar Orçamento
+            </a>
+            <a href="https://wa.me/5519996761646"
+               target="_blank"
+               class="btn-secondary">
+                💬 WhatsApp
+            </a>
+        </div>
+
+        <div class="hero-stats">
+            <div class="stat-item">
+                <span class="stat-num">500+</span>
+                <span class="stat-label">
+                    Clientes Atendidos
+                </span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-num">10+</span>
+                <span class="stat-label">
+                    Anos de Experiência
+                </span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-num">98%</span>
+                <span class="stat-label">
+                    Satisfação
+                </span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-num">24h</span>
+                <span class="stat-label">
+                    Suporte
+                </span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================================
+     SOBRE
+====================================== -->
+<section id="sobre">
+    <div class="container">
+        <div class="sobre-grid">
+            <div class="sobre-img">
+                <div class="sobre-img-box">
+                    💻
+                    <div class="badge-exp">
+                        <span>10+</span>
+                        Anos de<br>Experiência
+                    </div>
+                </div>
+            </div>
+
+            <div class="sobre-text">
+                <h2>
+                    Olá, sou
+                    <span>Geraldo Vicente</span>
+                </h2>
+                <p>
+                    Especialista em Suporte de
+                    Tecnologia com mais de 10 anos
+                    de experiência no mercado de TI.
+                    Fundador da GV Tech Soluções,
+                    empresa dedicada a oferecer
+                    suporte técnico de qualidade para
+                    empresas e pessoas físicas.
+                </p>
+                <p>
+                    Acredito que a tecnologia deve
+                    funcionar para você, não contra
+                    você. Por isso, ofereço soluções
+                    práticas, rápidas e com preço
+                    justo para todos os seus
+                    problemas de TI.
+                </p>
+
+                <ul class="sobre-lista">
+                    <li>
+                        Suporte Técnico Remoto
+                        e Presencial
+                    </li>
+                    <li>
+                        Configuração de Redes
+                        e Wi-Fi
+                    </li>
+                    <li>
+                        Segurança e Proteção
+                        de Dados
+                    </li>
+                    <li>
+                        Manutenção Preventiva
+                        e Corretiva
+                    </li>
+                    <li>
+                        Atendimento Rápido
+                        e Eficiente
+                    </li>
+                </ul>
+
+                <a href="#orcamento"
+                   class="btn-primary"
+                   style="display:inline-block;
+                          margin-top:20px">
+                    Solicitar Orçamento
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================================
+     SERVICOS
+====================================== -->
+<section id="servicos">
+    <div class="container">
+        <div class="section-title">
+            <h2>Nossos <span>Serviços</span></h2>
+            <div class="linha"></div>
+            <p>
+                Soluções completas em TI para
+                sua empresa ou residência
+            </p>
+        </div>
+
+        <div class="servicos-grid">
+            <div class="servico-card">
+                <span class="servico-icon">🖥️</span>
+                <h3>Suporte Técnico Remoto</h3>
+                <p>
+                    Resolvo seus problemas de
+                    computador remotamente, sem
+                    precisar sair de casa ou
+                    escritório. Rápido e eficiente.
+                </p>
+                <div class="servico-preco">
+                    A partir de R$ 80,00/hora
+                </div>
+            </div>
+
+            <div class="servico-card">
+                <span class="servico-icon">🔧</span>
+                <h3>Visita Técnica Presencial</h3>
+                <p>
+                    Atendimento presencial na
+                    sua empresa ou residência.
+                    Diagnóstico completo e
+                    solução definitiva.
+                </p>
+                <div class="servico-preco">
+                    A partir de R$ 200,00/visita
+                </div>
+            </div>
+
+            <div class="servico-card">
+                <span class="servico-icon">📡</span>
+                <h3>Redes e Wi-Fi</h3>
+                <p>
+                    Configuração e instalação
+                    de redes cabeadas e sem fio.
+                    Wi-Fi rápido e estável
+                    em toda sua empresa.
+                </p>
+                <div class="servico-preco">
+                    A partir de R$ 150,00
+                </div>
+            </div>
+
+            <div class="servico-card">
+                <span class="servico-icon">💾</span>
+                <h3>Formatação e Manutenção</h3>
+                <p>
+                    Formatação, reinstalação do
+                    Windows, limpeza e otimização.
+                    Seu computador como novo.
+                </p>
+                <div class="servico-preco">
+                    A partir de R$ 180,00
+                </div>
+            </div>
+
+            <div class="servico-card">
+                <span class="servico-icon">🛡️</span>
+                <h3>Segurança e Antivírus</h3>
+                <p>
+                    Proteção completa contra
+                    vírus, malware e ataques.
+                    Seus dados protegidos
+                    e sua empresa segura.
+                </p>
+                <div class="servico-preco">
+                    A partir de R$ 120,00
+                </div>
+            </div>
+
+            <div class="servico-card">
+                <span class="servico-icon">📋</span>
+                <h3>Contrato Mensal</h3>
+                <p>
+                    Suporte ilimitado por um
+                    valor fixo mensal. Ideal
+                    para empresas que precisam
+                    de TI sempre disponível.
+                </p>
+                <div class="servico-preco">
+                    A partir de R$ 900,00/mês
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================================
+     GALERIA
+====================================== -->
+<section id="galeria">
+    <div class="container">
+        <div class="section-title">
+            <h2>Nossa <span>Galeria</span></h2>
+            <div class="linha"></div>
+            <p>
+                Alguns dos nossos trabalhos
+                e atendimentos realizados
+            </p>
+        </div>
+
+        <div class="galeria-grid">
+            <div class="galeria-item">
+                🖥️
+                <div class="galeria-overlay">
+                    <p>Suporte Técnico</p>
+                </div>
+            </div>
+            <div class="galeria-item">
+                📡
+                <div class="galeria-overlay">
+                    <p>Configuração de Rede</p>
+                </div>
+            </div>
+            <div class="galeria-item">
+                🔧
+                <div class="galeria-overlay">
+                    <p>Manutenção de Hardware</p>
+                </div>
+            </div>
+            <div class="galeria-item">
+                💻
+                <div class="galeria-overlay">
+                    <p>Instalação de Software</p>
+                </div>
+            </div>
+            <div class="galeria-item">
+                🛡️
+                <div class="galeria-overlay">
+                    <p>Segurança de Dados</p>
+                </div>
+            </div>
+            <div class="galeria-item">
+                ☁️
+                <div class="galeria-overlay">
+                    <p>Backup em Nuvem</p>
+                </div>
+            </div>
+        </div>
+
+        <p style="text-align:center;
+                  color:#aaa;
+                  margin-top:30px;
+                  font-size:0.9em">
+            💡 Dica: Substitua os emojis por
+            fotos reais dos seus atendimentos
+            para maior credibilidade!
+        </p>
+    </div>
+</section>
+
+<!-- ======================================
+     ORCAMENTO
+====================================== -->
+<section id="orcamento">
+    <div class="container">
+        <div class="section-title">
+            <h2>
+                Solicite seu
+                <span>Orçamento</span>
+            </h2>
+            <div class="linha"></div>
+            <p>
+                Preencha o formulário e entro
+                em contato em até 2 horas!
+            </p>
+        </div>
+
+        <div class="orcamento-container">
+            <div class="orcamento-info">
+                <h3>Vamos resolver juntos!</h3>
+                <p>
+                    Entre em contato pelo formulário
+                    ou diretamente pelo WhatsApp.
+                    Atendo empresas e pessoas físicas
+                    em toda a região.
+                </p>
+
+                <a href="https://wa.me/5519996761646"
+                   target="_blank"
+                   class="contato-item"
+                   style="text-decoration:none">
+                    <span class="contato-icon">
+                        📱
+                    </span>
+                    <div class="contato-text">
+                        <strong>WhatsApp</strong>
+                        <span>(19) 99676-1646</span>
+                    </div>
+                </a>
+
+                <div class="contato-item">
+                    <span class="contato-icon">
+                        ✉️
+                    </span>
+                    <div class="contato-text">
+                        <strong>E-mail</strong>
+                        <span>
+                            jstechsolution754
+                            @outlook.com.br
+                        </span>
+                    </div>
+                </div>
+
+                <div class="contato-item">
+                    <span class="contato-icon">
+                        📍
+                    </span>
+                    <div class="contato-text">
+                        <strong>Região de Atendimento</strong>
+                        <span>
+                            Sumaré/SP e região
+                        </span>
+                    </div>
+                </div>
+
+                <div class="contato-item">
+                    <span class="contato-icon">
+                        🕐
+                    </span>
+                    <div class="contato-text">
+                        <strong>Horário</strong>
+                        <span>
+                            Seg-Sáb: 8h às 18h
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-orcamento">
+                <h3>📋 Formulário de Orçamento</h3>
+
+                <form id="formOrcamento"
+                      onsubmit="enviarOrcamento(
+                          event
+                      )">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>
+                                Seu Nome *
+                            </label>
+                            <input
+                                type="text"
+                                id="nome"
+                                placeholder="Nome completo"
+                                required
+                            >
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Telefone/WhatsApp *
+                            </label>
+                            <input
+                                type="tel"
+                                id="telefone"
+                                placeholder="(19) 99999-9999"
+                                required
+                            >
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>E-mail</label>
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="seu@email.com"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            Tipo de Serviço *
+                        </label>
+                        <select id="servico" required>
+                            <option value="">
+                                Selecione...
+                            </option>
+                            <option>
+                                Suporte Remoto
+                            </option>
+                            <option>
+                                Visita Técnica
+                            </option>
+                            <option>
+                                Configuração de Rede
+                            </option>
+                            <option>
+                                Formatação/Manutenção
+                            </option>
+                            <option>
+                                Segurança/Antivírus
+                            </option>
+                            <option>
+                                Contrato Mensal
+                            </option>
+                            <option>Outro</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            Descreva o Problema *
+                        </label>
+                        <textarea
+                            id="mensagem"
+                            placeholder="Descreva seu problema ou o que precisa..."
+                            required
+                        ></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            Urgência
+                        </label>
+                        <select id="urgencia">
+                            <option>
+                                Normal (até 48h)
+                            </option>
+                            <option>
+                                Urgente (até 24h)
+                            </option>
+                            <option>
+                                Emergência (hoje)
+                            </option>
+                        </select>
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="btn-enviar">
+                        🚀 Enviar Solicitação
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================================
+     CONTATO
+====================================== -->
+<section id="contato">
+    <div class="container">
+        <div class="section-title">
+            <h2>Entre em <span>Contato</span></h2>
+            <div class="linha"></div>
+        </div>
+
+        <div class="contato-grid">
+            <a href="https://wa.me/5519996761646"
+               target="_blank"
+               class="contato-card">
+                <span class="contato-card-icon">
+                    💬
+                </span>
+                <h3>WhatsApp</h3>
+                <p>(19) 99676-1646</p>
+            </a>
+
+            <a href="tel:+5519996761646"
+               class="contato-card">
+                <span class="contato-card-icon">
+                    📞
+                </span>
+                <h3>Telefone</h3>
+                <p>(19) 99676-1646</p>
+            </a>
+
+            <a href="mailto:jstechsolution754
+                      @outlook.com.br"
+               class="contato-card">
+                <span class="contato-card-icon">
+                    ✉️
+                </span>
+                <h3>E-mail</h3>
+                <p>
+                    jstechsolution754
+                    @outlook.com.br
+                </p>
+            </a>
+
+            <div class="contato-card">
+                <span class="contato-card-icon">
+                    📍
+                </span>
+                <h3>Localização</h3>
+                <p>Sumaré/SP e região</p>
+            </div>
+
+            <div class="contato-card">
+                <span class="contato-card-icon">
+                    🕐
+                </span>
+                <h3>Horário</h3>
+                <p>Seg-Sáb: 8h às 18h</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================================
+     FOOTER
+====================================== -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>GV Tech Soluções</h3>
+                <p>
+                    Especialista em Suporte de
+                    Tecnologia. Sua TI funcionando,
+                    sem complicações.
+                    Atendemos empresas e pessoas
+                    físicas em Sumaré/SP e região.
+                </p>
+            </div>
+
+            <div class="footer-links">
+                <h4>Menu</h4>
+                <ul>
+                    <li>
+                        <a href="#inicio">Início</a>
+                    </li>
+                    <li>
+                        <a href="#sobre">Sobre</a>
+                    </li>
+                    <li>
+                        <a href="#servicos">
+                            Serviços
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#galeria">
+                            Galeria
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#orcamento">
+                            Orçamento
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Serviços</h4>
+                <ul>
+                    <li>
+                        <a href="#servicos">
+                            Suporte Remoto
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#servicos">
+                            Visita Técnica
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#servicos">
+                            Redes e Wi-Fi
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#servicos">
+                            Formatação
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#servicos">
+                            Contrato Mensal
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>
+                © 2025 GV Tech Soluções -
+                Geraldo Vicente |
+                (19) 99676-1646 |
+                Todos os direitos reservados
+            </p>
+        </div>
+    </div>
+</footer>
+
+<!-- ======================================
+     WHATSAPP FLUTUANTE
+====================================== -->
+<a href="https://wa.me/5519996761646"
+   target="_blank"
+   class="whatsapp-float"
+   title="Fale no WhatsApp">
+    💬
+</a>
+
+<!-- ======================================
+     MODAL DE SUCESSO
+====================================== -->
+<div class="modal" id="modalSucesso">
+    <div class="modal-box">
+        <div style="font-size:3em;
+                    margin-bottom:15px">
+            ✅
+        </div>
+        <h3>Orçamento Enviado!</h3>
+        <p>
+            Recebemos sua solicitação!
+            <br>
+            Entraremos em contato em
+            até 2 horas pelo WhatsApp
+            ou e-mail informado.
+            <br><br>
+            <strong>Geraldo Vicente</strong>
+            <br>
+            (19) 99676-1646
+        </p>
+        <button class="modal-close"
+                onclick="fecharModal()">
+            OK, Obrigado!
+        </button>
+    </div>
+</div>
+
+<!-- ======================================
+     JAVASCRIPT
+====================================== -->
+<script>
+
+// Menu mobile
+function toggleMenu() {
+    var menu = document.getElementById('navMenu');
+    menu.classList.toggle('ativo');
+}
+
+// Fechar menu ao clicar em link
+document.querySelectorAll('.nav-menu a')
+.forEach(function(link) {
+    link.addEventListener('click', function() {
+        document.getElementById('navMenu')
+        .classList.remove('ativo');
+    });
+});
+
+// Formulario de orcamento
+function enviarOrcamento(e) {
+    e.preventDefault();
+
+    var nome = document.getElementById(
+        'nome'
+    ).value;
+    var telefone = document.getElementById(
+        'telefone'
+    ).value;
+    var email = document.getElementById(
+        'email'
+    ).value;
+    var servico = document.getElementById(
+        'servico'
+    ).value;
+    var mensagem = document.getElementById(
+        'mensagem'
+    ).value;
+    var urgencia = document.getElementById(
+        'urgencia'
+    ).value;
+
+    // Montar mensagem para WhatsApp
+    var texto =
+        '🔧 *SOLICITAÇÃO DE ORÇAMENTO*\n' +
+        '*GV Tech Soluções*\n\n' +
+        '👤 *Nome:* ' + nome + '\n' +
+        '📱 *Telefone:* ' + telefone + '\n' +
+        '✉️ *E-mail:* ' + email + '\n' +
+        '🔧 *Serviço:* ' + servico + '\n' +
+        '⚡ *Urgência:* ' + urgencia + '\n\n' +
+        '📝 *Descrição:*\n' + mensagem;
+
+    // Enviar para WhatsApp
+    var url =
+        'https://wa.me/5519996761646?text=' +
+        encodeURIComponent(texto);
+
+    window.open(url, '_blank');
+
+    // Mostrar modal de sucesso
+    document.getElementById('modalSucesso')
+    .classList.add('ativo');
+
+    // Limpar formulario
+    document.getElementById(
+        'formOrcamento'
+    ).reset();
+}
+
+// Fechar modal
+function fecharModal() {
+    document.getElementById('modalSucesso')
+    .classList.remove('ativo');
+}
+
+// Fechar modal clicando fora
+document.getElementById('modalSucesso')
+.addEventListener('click', function(e) {
+    if (e.target === this) {
+        fecharModal();
+    }
+});
+
+// Animacao ao rolar a pagina
+var observer = new IntersectionObserver(
+    function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform =
+                    'translateY(0)';
+            }
+        });
+    },
+    { threshold: 0.1 }
+);
+
+document.querySelectorAll(
+    '.servico-card, .galeria-item, ' +
+    '.contato-card'
+).forEach(function(el) {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = '0.6s ease';
+    observer.observe(el);
+});
+
+</script>
+</body>
+</html>
